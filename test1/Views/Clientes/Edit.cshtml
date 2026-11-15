@@ -1,0 +1,26 @@
+@model test1.Models.Cliente
+
+@{
+    ViewData["Title"] = "Editar cliente";
+}
+
+<div class="mb-4">
+    <h1 class="h2 fw-bold">Editar cliente</h1>
+    <p class="text-secondary mb-0">Actualiza la información de @Model.Nombres @Model.Apellidos.</p>
+</div>
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-4 p-md-5">
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+            <input type="hidden" asp-for="Id" />
+            <partial name="_ClienteForm" model="Model" />
+            <div class="mt-4 pt-3 border-top">
+                <button type="submit" class="btn btn-primary px-4">Guardar cambios</button>
+                <a asp-action="Index" class="btn btn-outline-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

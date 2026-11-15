@@ -1,0 +1,53 @@
+@model IEnumerable<test1.Models.Canton>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Canton</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.extencion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numero_habitantes)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Provincia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.extencion)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.numero_habitantes)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(model => item.Provincia.nombre)
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
